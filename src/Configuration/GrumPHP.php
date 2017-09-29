@@ -41,6 +41,20 @@ class GrumPHP
     }
 
     /**
+     * @param string $variable
+     * @return string
+     */
+    public function getGitHookVariable($variable)
+    {
+        $gitHookVariables = $this->container->getParameter('git_hook_variables');
+        if (!array_key_exists($variable, $gitHookVariables)) {
+            throw new RuntimeException('Could not find git hook variable: ' . $variable);
+        }
+
+        return $gitHookVariables[$variable];
+    }
+
+    /**
      * @return string
      */
     public function getHooksDir()

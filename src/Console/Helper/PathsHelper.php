@@ -137,6 +137,15 @@ class PathsHelper extends Helper
     public function getGitDir()
     {
         $gitDir = $this->config->getGitDir();
+        $hooksPreset = $this->config->getHooksPreset();
+        if ($hooksPreset === 'local') {
+            $gitDir = $this->config->getGitHookVariable('VAGRANT_LOCAL_PATH');
+        }
+
+        if ($hooksPreset === 'vagrant') {
+            $gitDir = $this->config->getGitHookVariable('VAGRANT_REMOTE_PATH');
+        }
+
         if (!$this->fileSystem->exists($gitDir)) {
             throw new RuntimeException('The configured GIT directory could not be found.');
         }
