@@ -29,7 +29,7 @@
         "nikic/php-parser": "~2.1",
         "phpspec/phpspec": "^3.2.2",
         "phpspec/prophecy": "^1.6.2",
-        "phpunit/phpunit": "^4.8.31",
+        "phpunit/phpunit": "^5.7.25|^6.4.4",
         "sebastian/comparator": "^1.2.4",
         "sensiolabs/security-checker": "^3.0",
         "squizlabs/php_codesniffer": "~2.4"
@@ -42,7 +42,9 @@
         "doctrine/orm": "Lets GrumPHP validate your Doctrine mapping files.",
         "etsy/phan": "Lets GrumPHP unleash a static analyzer on your code",
         "friendsofphp/php-cs-fixer": "Lets GrumPHP automatically fix your codestyle.",
+        "infection/infection": "Lets GrumPHP evaluate the quality your unit tests",
         "jakub-onderka/php-parallel-lint": "Lets GrumPHP quickly lint your entire code base.",
+        "maglnet/composer-require-checker": "Lets GrumPHP analyze composer dependencies.",
         "malukenho/kawaii-gherkin": "Lets GrumPHP lint your Gherkin files.",
         "nikic/php-parser": "Lets GrumPHP run static analyses through your PHP files.",
         "phing/phing": "Lets GrumPHP run your automated PHP tasks.",

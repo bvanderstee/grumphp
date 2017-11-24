@@ -48,6 +48,20 @@ class FilesCollectionSpec extends ObjectBehavior
         $files[0]->shouldBe($file1);
     }
 
+    function it_should_filter_by_names(SplFileInfo $file1, SplFileInfo $file2, SplFileInfo $file3)
+    {
+        $file1->getFilename()->willReturn('file.json');
+        $file2->getFilename()->willReturn('file.php');
+        $file3->getFilename()->willReturn('file.png');
+
+        $result = $this->names(['*.json', '*.php']);
+        $result->shouldBeAnInstanceOf(FilesCollection::class);
+        $result->count()->shouldBe(2);
+        $files = $result->toArray();
+        $files[0]->shouldBe($file1);
+        $files[1]->shouldBe($file2);
+    }
+
     function it_should_filter_by_not_name(SplFileInfo $file1, SplFileInfo $file2)
     {
         $file1->getFilename()->willReturn('file.php');
@@ -91,6 +105,19 @@ class FilesCollectionSpec extends ObjectBehavior
         $file2->getRelativePathname()->willReturn('path2/file.png');
 
         $result = $this->notPath('path2');
+        $result->shouldBeAnInstanceOf(FilesCollection::class);
+        $result->count()->shouldBe(1);
+        $files = $result->toArray();
+        $files[0]->shouldBe($file1);
+    }
+
+    function it_should_filter_by_not_paths(SplFileInfo $file1, SplFileInfo $file2, SplFileInfo $file3)
+    {
+        $file1->getRelativePathname()->willReturn('path1/file.php');
+        $file2->getRelativePathname()->willReturn('path2/file.php');
+        $file3->getRelativePathname()->willReturn('path3/file.png');
+
+        $result = $this->notPaths(['path2', 'path3']);
         $result->shouldBeAnInstanceOf(FilesCollection::class);
         $result->count()->shouldBe(1);
         $files = $result->toArray();
@@ -175,5 +202,19 @@ class FilesCollectionSpec extends ObjectBehavior
 
         $result = $this->extensions([]);
         $result->count()->shouldBe(0);
+    }
+
+    function it_should_combine_two_collections_with_ensured_files()
+    {
+        $file1 = new \SplFileInfo('path1/file1.php');
+        $file2 = new \SplFileInfo('path1/file2.php');
+        $file3 = new \SplFileInfo('path1/file3.php');
+
+        $this->beConstructedWith([$file2, $file3]);
+        $ensureFiles = new FilesCollection([$file1, $file2]);
+
+        $result = $this->ensureFiles($ensureFiles);
+        $result->shouldIterateAs([$file2, $file3, $file1]);
+        $result->shouldHaveCount(3);
     }
 }

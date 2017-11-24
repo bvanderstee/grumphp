@@ -14,22 +14,24 @@ parameters:
         clover_coverage: ~
         codeception: ~
         composer: ~
-        deptrac: ~
+        composer_require_checker: ~
         composer_script: ~
+        deptrac: ~
         doctrine_orm: ~
-        file_size: 
+        file_size: ~
         gherkin: ~
         git_blacklist: ~
         git_branch_name: ~
         git_commit_message: ~
         grunt: ~
         gulp: ~
+        infection: ~
         jsonlint: ~
         kahlan: ~
         make: ~
         npm_script: ~
+        phan: ~        
         phing: ~
-        phan: ~
         php7cc: ~
         phpcpd: ~
         phpcs: ~
@@ -61,6 +63,7 @@ Every task has it's own default configuration. It is possible to overwrite the p
 - [Clover Coverage](tasks/clover_coverage.md)
 - [Codeception](tasks/codeception.md)
 - [Composer](tasks/composer.md)
+- [Composer Require Checker](tasks/composer_require_checker.md)
 - [Composer Script](tasks/composer_script.md)
 - [Doctrine ORM](tasks/doctrine_orm.md)
 - [File size](tasks/file_size.md)
@@ -71,6 +74,7 @@ Every task has it's own default configuration. It is possible to overwrite the p
 - [Git commit message](tasks/git_commit_message.md)
 - [Grunt](tasks/grunt.md)
 - [Gulp](tasks/gulp.md)
+- [Infection](tasks/infection.md)
 - [JsonLint](tasks/jsonlint.md)
 - [Kahlan](tasks/kahlan.md)
 - [Make](tasks/make.md)

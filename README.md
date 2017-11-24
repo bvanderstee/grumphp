@@ -38,31 +38,8 @@ You will see following message in the composer logs:
 
 *Watch out! GrumPHP is sniffing your commits!*
 
-To make GrumPHP even more awesome, it will suggest installing some extra packages:
-
-- atoum/atoum : ~2.7
-- behat/behat : ~3.0
-- codegyre/robo : ~0.7
-- doctrine/orm: ~2.5
-- friendsofphp/php-cs-fixer : ~1|~2
-- malukenho/kawaii-gherkin : ~0.1
-- phing/phing : ~2.0
-- sstalle/php7cc : ~1.1
-- phpspec/phpspec : ~2.1
-- phpstan/phpstan : ^0.6
-- phpunit/phpunit : ~4.5
-- roave/security-advisories : dev-master@dev
-- sebastian/phpcpd : ~2.0
-- squizlabs/php_codesniffer : ~2.3
-- codeception/codeception : ~2.1
-- sensiolabs/security-checker : ~3.0
-- phpmd/phpmd : ~2.4
-- nikic/php-parser : ~2.1
-- kahlan/kahlan : ~3
-- etsy/phan : ~0.9
-
 GrumPHP will never push you into using a specific task. You can choose the tasks that fit your needs, and activate or
-deactivate any task in no time!
+deactivate any task in no time! See the `suggest` section in [composer.json](https://github.com/phpro/grumphp/blob/master/composer.json#L37).
 
 Having trouble installing GrumPHP? Find out how to:
 
@@ -99,6 +76,7 @@ parameters:
         clover_coverage: ~
         codeception: ~
         composer: ~
+        composer_require_checker: ~
         composer_script: ~
         deptrac: ~
         doctrine_orm: ~
@@ -109,8 +87,10 @@ parameters:
         git_commit_message: ~
         grunt: ~
         gulp: ~
+        infection: ~
         jsonlint: ~
         kahlan: ~
+        make: ~
         npm_script: ~
         phan: ~        
         phing: ~
@@ -121,6 +101,7 @@ parameters:
         phpcsfixer2: ~
         phplint: ~
         phpmd: ~
+        phpmnd: ~
         phpparser: ~
         phpspec: ~
         phpstan: ~
@@ -157,7 +138,7 @@ Since GrumPHP is just a CLI tool, these commands can be triggered:
 
 ## Compatibility
 
-GrumPHP works with PHP 5.4 or above, and is also tested to work with HHVM.
+GrumPHP works with PHP 5.6 or above.
 
 This package has been tested with following git clients:
 
